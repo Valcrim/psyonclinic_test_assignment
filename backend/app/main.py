@@ -22,7 +22,7 @@ async def get_doctors_from_site(limit: int = Query(200, ge=1, le=350)) -> list[D
 
 
 @app.get("/specialists")
-async def list_specialists(page: int | None = Query(None, ge=1)) -> Any:
+async def get_specialists_from_api(page: int | None = Query(None, ge=1)) -> Any:
     params = {"page": page} if page else None
     try:
         return await fetch_specialists(params)
